@@ -90,6 +90,9 @@ def playerChoicesOverworld(gameState):
   
   choice = input("What would you do today")
   match choice:
+    case "Status":
+      print("Health: ", player.health)
+      print("Gold: ", player.funds)
     case "Attack": 
       attack("Hah","Haah")
     case "Journey":
