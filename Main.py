@@ -1,4 +1,6 @@
 from dataclasses import dataclass
+from random import randint
+
 @dataclass
 class GameState():
   def __init__(self):
@@ -29,14 +31,46 @@ def charCreation(player):
   return 0
 
 def gameExplore(gameState):
+  rollRandomEncounter(gameState)
   print("You go out into the world. Nothing happens to you because I don't have jack")
+def roll2d6():
+  return (randint(1,6)+randint(1,6))
+def rollRandomEncounter(gameState):
+  outcome = roll2d6()
+  match outcome:
+    case 1:
+      print("test 1")
+    case 2:
+      print("test 2")
+    case 3:
+      print("3")
+    case 4:
+      print("4")
+    case 5:
+      print("Great news, you gained money!")
+      gameState.player.funds += 5
+      print("Gold on person:", gameState.player.funds)
+    case 6:
+      print("A gazebo attacks you")
+    case 7:
+      print("A bandit attacks you")
+    case 8:
+      print("Great news, you gained money!")
+      gameState.player.funds += 5
+      print("Gold on person:", gameState.player.funds)
+    case 9:
+      print("9")
+    case 10:
+      print("10")
+    case 11:
+      print("11")
+    case 12:
+      print("12")
 
-def rollRandomEncounter():
-  print("A gazebo attacks")
-
-def endDayCycle(day):
+def endDayCycle(day, player):
   # Steps of a day
   print("As you sleep, the world at large continues to shift")
+  player.health +=10
   print("It is now day ",day+1)
   return day+1
 
@@ -51,6 +85,9 @@ def hurtSelf(target):
 def playerChoicesCombat():
   return 0
 def playerChoicesOverworld(gameState):
+  player = gameState.player
+  day = gameState.timeTracking.day
+  
   choice = input("What would you do today")
   match choice:
     case "Attack": 
@@ -58,7 +95,7 @@ def playerChoicesOverworld(gameState):
     case "Journey":
       gameExplore(gameState)
     case "Sleep":
-      gameState.timeTracking.day = endDayCycle(gameState.timeTracking.day)
+      day = endDayCycle(day, player)
     case "Shop":
       print("What should have been a quick shopping trip turns into a 5 hour quandry of book flipping")
     case "Quit":
