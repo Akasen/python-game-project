@@ -1,0 +1,28 @@
+tables:
+  test_encounters:
+    - roll: 1
+      result: "Number 1"
+    - roll: 2
+      result: "Number 2"
+    - roll: 3
+      result: "Number 1"
+    - roll: 4
+      result: "Number 2"
+    - roll: 5
+      result: "Number 1"
+    - roll: 6
+      result: "Number 2"
+    - roll: 7
+      result: "Number 1"
+    - roll: 8
+      result: "Number 2"
+    - roll: 9
+      result: "Number 1"
+    - roll: 10
+      result: "Number 2"
+    - roll: 11
+      result: "Number 1"
+    - roll: 12
+      result: "Number 2"
+  forest_encounters:
+    - roll 

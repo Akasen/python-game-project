@@ -1,5 +1,9 @@
 from dataclasses import dataclass
 from random import randint
+import yaml
+
+with open("./random_encounter.yaml","r") as f:
+  data = yaml.safe_load(f)
 
 @dataclass
 class GameState():
@@ -31,13 +35,17 @@ def charCreation(player):
   return 0
 
 def gameExplore(gameState):
-  rollRandomEncounter(gameState)
-  print("You go out into the world. Nothing happens to you because I don't have jack")
+  r, event = rollRandomEncounter(gameState)
+  print(f"Roll:{r} - {event['result']}")
 def roll2d6():
   return (randint(1,6)+randint(1,6))
 def rollRandomEncounter(gameState):
-  outcome = roll2d6()
-  match outcome:
+  roll = roll2d6()
+  for entry in data["tables"]["test_encounters"]:
+        if entry["roll"] == roll:
+            return roll, entry
+  return roll, None
+  '''match outcome:
     case 1:
       print("test 1")
     case 2:
@@ -65,7 +73,14 @@ def rollRandomEncounter(gameState):
     case 11:
       print("11")
     case 12:
-      print("12")
+      print("12")'''
+      
+def getRandomTreasure():
+  outcome = randint(1,10)
+  match outcome:
+    case 1:
+      print("Test")
+  return 0
 
 def endDayCycle(day, player):
   # Steps of a day
@@ -73,7 +88,7 @@ def endDayCycle(day, player):
   player.health +=10
   print("It is now day ",day+1)
   return day+1
-
+  
 def playerInput():
   playerInput = input()
   return playerInput()
