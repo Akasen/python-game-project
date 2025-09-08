@@ -1,28 +1,29 @@
 tables:
   test_encounters:
     - roll: 1
-      result: "Number 1"
+      result: "Holy hell, you rolled this?"
     - roll: 2
-      result: "Number 2"
+      result: "You find the Augand Stone"
     - roll: 3
-      result: "Number 1"
+      result: "A bandit attacks you"
     - roll: 4
-      result: "Number 2"
+      result: "A bandit attacks you"
     - roll: 5
-      result: "Number 1"
+      result: "You find an abdonded merchants wagon"
+      type: "get_loot"
     - roll: 6
-      result: "Number 2"
+      result: "God punches you"
     - roll: 7
       result: "Number 1"
     - roll: 8
       result: "Number 2"
     - roll: 9
-      result: "Number 1"
+      result: "Number 9999999999"
     - roll: 10
-      result: "Number 2"
+      result: "Dio assails from the heavens"
     - roll: 11
-      result: "Number 1"
+      result: "Wolves attack you"
     - roll: 12
-      result: "Number 2"
+      result: "God levels you up"
   forest_encounters:
     - roll 

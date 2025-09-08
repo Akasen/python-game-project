@@ -6,6 +6,10 @@ with open("./random_encounter.yaml","r") as f:
   data = yaml.safe_load(f)
 
 @dataclass
+class GameData():
+    enounters: []
+    
+@dataclass
 class GameState():
   def __init__(self):
     self.player = Character()
