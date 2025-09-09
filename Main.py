@@ -90,8 +90,9 @@ def endDayCycle(day, player):
   # Steps of a day
   print("As you sleep, the world at large continues to shift")
   player.health +=10
-  print("It is now day ",day+1)
-  return day+1
+  print(f"It is now day {day.day+1}")
+  day.day += 1
+  #return day+1
   
 def playerInput():
   playerInput = input()
@@ -105,19 +106,20 @@ def playerChoicesCombat():
   return 0
 def playerChoicesOverworld(gameState):
   player = gameState.player
-  day = gameState.timeTracking.day
+  day = gameState.timeTracking
   
   choice = input("What would you do today")
   match choice:
     case "Status":
       print("Health: ", player.health)
       print("Gold: ", player.funds)
+      print("Day: ", day.day)
     case "Attack": 
       attack("Hah","Haah")
     case "Journey":
       gameExplore(gameState)
     case "Sleep":
-      day = endDayCycle(day, player)
+      endDayCycle(day, player)
     case "Shop":
       print("What should have been a quick shopping trip turns into a 5 hour quandry of book flipping")
     case "Quit":
