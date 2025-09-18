@@ -42,7 +42,7 @@ def gameExplore(gameState):
   r, event = rollRandomEncounter(gameState)
   print(f"Roll:{r} - {event['result']}")
 def roll2d6():
-  return (randint(1,6)+randint(1,6))
+    return (randint(1,6)+randint(1,6))
 def rollRandomEncounter(gameState):
   roll = roll2d6()
   for entry in data["tables"]["test_encounters"]:
